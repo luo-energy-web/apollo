@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html class="luo-html" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Successful</title>
+
+    <script>
+        function applyTheme() {
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                document.documentElement.classList.add('luo-dark');
+            } else {
+                document.documentElement.classList.remove('luo-dark');
+            }
+        }
+        applyTheme();
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', applyTheme);
+    </script>
+
+    <style>
+        /* --- YOUR PROVIDED CSS STARTS HERE --- */
+        :root {
+            color-scheme: dark;
+            --luo-font-family: "Geist", "Segoe UI", sans-serif;
+            --luo-radius-sm: 12px;
+            --luo-radius-md: 18px;
+            --luo-radius-lg: 28px;
+            --luo-shadow: 0 28px 90px rgba(0, 0, 0, 0.32);
+            --luo-transition: 180ms ease;
+        }
+        .luo-html, .luo-body { min-height: 100%; }
+        .luo-body { margin: 0; font-family: var(--luo-font-family); background: #111215; color: #f5f5f4; }
+        .luo-body *, .luo-body *::before, .luo-body *::after { box-sizing: border-box; }
+        .luo-body a { color: inherit; }
+        .luo-html {
+            --luo-background: #f3f1ec;
+            --luo-background-strong: #ffffff;
+            --luo-foreground: #1a1a1a;
+            --luo-muted: #6a6a6a;
+            --luo-border: rgba(17, 18, 21, 0.12);
+            --luo-border-strong: rgba(17, 18, 21, 0.2);
+            --luo-input: #ffffff;
+            --luo-input-foreground: #161616;
+            --luo-button: #1c1c1f;
+            --luo-button-foreground: #ffffff;
+            --luo-button-secondary: #ece8e0;
+            --luo-button-secondary-foreground: #161616;
+            --luo-link: #161616;
+            --luo-glow-left: rgba(25, 216, 193, 0.18);
+            --luo-glow-right: rgba(17, 18, 21, 0.08);
+            --luo-alert-info: #dceffd;
+            --luo-alert-success: #dff6e9;
+            --luo-alert-warning: #fff0d0;
+            --luo-alert-danger: #ffe0dc;
+            --luo-alert-foreground: #161616;
+        }
+        .luo-html.luo-dark {
+            color-scheme: dark;
+            --luo-background: #111215;
+            --luo-background-strong: rgba(24, 25, 29, 0.9);
+            --luo-foreground: #f5f5f4;
+            --luo-muted: #b2b2b6;
+            --luo-border: rgba(255, 255, 255, 0.12);
+            --luo-border-strong: rgba(255, 255, 255, 0.18);
+            --luo-input: #f3f3f3;
+            --luo-input-foreground: #1a1a1a;
+            --luo-button: #f3f3f3;
+            --luo-button-foreground: #1a1a1a;
+            --luo-button-secondary: rgba(255, 255, 255, 0.08);
+            --luo-button-secondary-foreground: #f5f5f4;
+            --luo-link: #f5f5f4;
+            --luo-glow-left: rgba(25, 216, 193, 0.14);
+            --luo-glow-right: rgba(255, 255, 255, 0.08);
+            --luo-alert-info: rgba(89, 168, 241, 0.18);
+            --luo-alert-success: rgba(68, 186, 118, 0.18);
+            --luo-alert-warning: rgba(244, 184, 54, 0.18);
+            --luo-alert-danger: rgba(248, 107, 98, 0.22);
+            --luo-alert-foreground: #f5f5f4;
+        }
+        .luo-shell {
+            position: relative;
+            min-height: 100vh;
+            overflow: hidden;
+            background: radial-gradient(circle at top left, var(--luo-glow-left), transparent 38%),
+                        radial-gradient(circle at bottom right, var(--luo-glow-right), transparent 32%),
+                        linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent 20%),
+                        var(--luo-background);
+            color: var(--luo-foreground);
+        }
+        .luo-background, .luo-background__grid, .luo-background__glow { position: absolute; inset: 0; }
+        .luo-background__grid {
+            opacity: 0.08;
+            background-image: linear-gradient(to right, transparent 0, transparent calc(100% - 1px), rgba(255, 255, 255, 0.18) 100%),
+                              linear-gradient(to bottom, transparent 0, transparent calc(100% - 1px), rgba(255, 255, 255, 0.14) 100%);
+            background-size: 64px 64px;
+            mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.7), transparent 88%);
+            -webkit-mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.7), transparent 88%);
+        }
+        .luo-background__glow { filter: blur(70px); }
+        .luo-background__glow--left {
+            transform: translate(-20%, -18%);
+            background: radial-gradient(circle, var(--luo-glow-left), transparent 52%);
+        }
+        .luo-background__glow--right {
+            transform: translate(28%, 28%);
+            background: radial-gradient(circle, var(--luo-glow-right), transparent 44%);
+        }
+        .luo-card-wrap {
+            position: relative;
+            z-index: 1;
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+            padding: 32px 20px;
+        }
+        .luo-card {
+            width: min(100%, 452px);
+            border: 1px solid var(--luo-border);
+            border-radius: var(--luo-radius-lg);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            background: var(--luo-background-strong);
+            box-shadow: var(--luo-shadow);
+        }
+        .luo-card__content { padding-inline: 28px; padding-bottom: 28px; }
+        .luo-card__header { padding: 28px 28px 18px; text-align: center; }
+        .luo-card__title { margin: 0; font-size: 28px; line-height: 1.1; letter-spacing: -0.03em; }
+        .luo-card__subtitle { margin: 10px 0 0; color: var(--luo-muted); font-size: 14px; }
+        .luo-actions { display: flex; align-items: center; gap: 12px; margin-top: 10px; justify-content: stretch; }
+        .luo-button {
+            text-decoration: none; display: inline-flex; align-items: center; justify-content: center;
+            gap: 10px; min-height: 52px; padding: 0 18px; border-radius: 14px; border: 1px solid transparent;
+            cursor: pointer; font: inherit; transition: transform var(--luo-transition), background-color var(--luo-transition);
+        }
+        .luo-button:hover { transform: translateY(-1px); }
+        .luo-button--primary { background: var(--luo-button); color: var(--luo-button-foreground); }
+        .luo-button--full { width: 100%; }
+        @media (max-width: 560px) {
+            .luo-card-wrap { padding: 0; }
+            .luo-card { width: 100%; min-height: 100vh; border-radius: 0; border-inline: 0; }
+            .luo-card__content, .luo-card__header { padding-inline: 20px; }
+            .luo-card__header { padding-top: 32px; }
+        }
+        /* --- YOUR PROVIDED CSS ENDS HERE --- */
+    </style>
+</head>
+<body class="luo-body">
+    <div class="luo-shell">
+        <div class="luo-background">
+            <div class="luo-background__grid"></div>
+            <div class="luo-background__glow luo-background__glow--left"></div>
+            <div class="luo-background__glow luo-background__glow--right"></div>
+        </div>
+
+        <div class="luo-card-wrap">
+            <div class="luo-card">
+
+                <div class="luo-card__header">
+                    <svg style="width: 64px; height: 64px; color: #19d8c1; margin: 0 auto 16px; display: block;" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+
+                    <h1 class="luo-card__title">Login Successful</h1>
+                    <p class="luo-card__subtitle">You are being redirected back to the app. If nothing happens automatically, please tap the button below.</p>
+                </div>
+
+                <div class="luo-card__content">
+                    <div class="luo-actions">
+                        <a href="#" id="redirect-btn" class="luo-button luo-button--primary luo-button--full">Return to App</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const queryParams = window.location.search;
+        const deepLink = "be.luo.apps.apollo://callback" + queryParams;
+
+        document.getElementById('redirect-btn').href = deepLink;
+
+        window.onload = function() {
+            setTimeout(() => {
+                window.location.href = deepLink;
+            }, 500);
+        };
+    </script>
+</body>
+</html>
