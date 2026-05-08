@@ -1,0 +1,13 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "be.luo.apps.apollo",
+      "sha256_cert_fingerprints": [
+        "1B:AA:3A:84:72:1B:AD:AE:C9:17:23:7A:6E:6B:D5:C6:49:77:63:72:72:47:03:EB:86:AD:7D:0D:F7:6D:AD:7E",
+        "EC:09:73:3E:53:04:F4:48:41:11:2B:13:D5:9D:8A:00:7B:0D:EC:FD:76:E7:03:BC:35:25:87:F4:41:44:0D:11"
+      ]
+    }
+  }
+]
